@@ -81,7 +81,7 @@ $query_product_edit = mysqli_query($mysqli, $sql_product_edit);
                                 <?php
                                     }
                                     ?>
-                                <a class="btn-add-scent " href="?action=scent&query=scent_add">+ Thêm mùi hương</a>
+                                <a class="btn-add-scent " href="?action=scent&query=scent_add">+ Thêm Size</a>
                             </div>
                         </div>
                         <div class="input-item form-group">

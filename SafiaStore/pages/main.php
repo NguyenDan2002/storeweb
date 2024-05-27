@@ -39,6 +39,9 @@ include("./pages/base/header.php");
     elseif ($action == 'checkout'){
         include("./pages/main/checkout.php");
     }
+    elseif ($action == 'xuly'){
+        include("./pages/main/xuly.php");
+    }
     elseif ($action == 'thankiu'){
         include("./pages/main/thankiu.php");
     }

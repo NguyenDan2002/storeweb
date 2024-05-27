@@ -200,41 +200,43 @@ if (isset($_GET['order_type']) && $_GET['order_type'] == 1) {
 <?php
 if ($status == 1) {
 ?>
-    <section class="thankiu">
-        <div class="container">
-            <div class="thankiu__box text-center">
-                <div class="thankiu_image">
-                    <img src="assets/images/icon/icon-success.gif" alt="success">
-                </div>
-                <h1 class="thankiu__heading h2">Đặt hàng thành công</h1>
-                <span class="thankiu__heading2 h3">Cảm ơn quý khách đã mua hàng tại Guha Perfume</span>
-                <p class="thankiu__description">Đơn hàng của quý khách đã được tiếp nhận và đang trong thời gian xử lý. Chúng tôi sẽ thông báo đến quý khách ngay khi hàng chuẩn bị được giao.</p>
-                <div class="thankiu_link">
-                    <a href="index.php" class="btn btn__outline">Trang chủ</a>
-                    <a href="index.php?page=my_account&tab=account_order" class="btn btn__outline">Xem chi tiết</a>
-                </div>
+<section class="thankiu">
+    <div class="container">
+        <div class="thankiu__box text-center">
+            <div class="thankiu_image">
+                <img src="assets/images/icon/icon-success.gif" alt="success">
+            </div>
+            <h1 class="thankiu__heading h2">Đặt hàng thành công</h1>
+            <span class="thankiu__heading2 h3">Cảm ơn quý khách đã mua hàng tại DAN Shoes</span>
+            <p class="thankiu__description">Đơn hàng của quý khách đã được tiếp nhận và đang trong thời gian xử lý.
+                Chúng tôi sẽ thông báo đến quý khách ngay khi hàng chuẩn bị được giao.</p>
+            <div class="thankiu_link">
+                <a href="index.php" class="btn btn__outline">Trang chủ</a>
+                <a href="index.php?page=my_account&tab=account_order" class="btn btn__outline">Xem chi tiết</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 <?php
 } else {
 ?>
-    <section class="thankiu">
-        <div class="container">
-            <div class="thankiu__box text-center">
-                <div class="thankiu_image">
-                    <img src="assets/images/icon/icon-error.gif" alt="success">
-                </div>
-                <h1 class="thankiu__heading heading--wanning h2">Giao dịch thất bại</h1>
-                <span class="thankiu__heading2 h3">Thanh toán không thành công xin vui lòng kiểm tra lại</span>
-                <p class="thankiu__description">Quý khách vui lòng thực hiện thanh toán lại đơn hàng hoặc có thể sử dụng phương thức thanh toán khác để có thể mua hàng, các sản phẩm hiện vẫn còn ở trong giỏ hàng</p>
-                <div class="thankiu_link">
-                    <a href="index.php" class="btn btn__outline">Trang chủ</a>
-                    <a href="index.php?page=cart" class="btn btn__outline">Xem giỏ hàng</a>
-                </div>
+<section class="thankiu">
+    <div class="container">
+        <div class="thankiu__box text-center">
+            <div class="thankiu_image">
+                <img src="assets/images/icon/icon-error.gif" alt="success">
+            </div>
+            <h1 class="thankiu__heading heading--wanning h2">Giao dịch thất bại</h1>
+            <span class="thankiu__heading2 h3">Thanh toán không thành công xin vui lòng kiểm tra lại</span>
+            <p class="thankiu__description">Quý khách vui lòng thực hiện thanh toán lại đơn hàng hoặc có thể sử dụng
+                phương thức thanh toán khác để có thể mua hàng, các sản phẩm hiện vẫn còn ở trong giỏ hàng</p>
+            <div class="thankiu_link">
+                <a href="index.php" class="btn btn__outline">Trang chủ</a>
+                <a href="index.php?page=cart" class="btn btn__outline">Xem giỏ hàng</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <?php
     $partnerCode = $_GET['partnerCode'];

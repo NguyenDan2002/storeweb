@@ -93,7 +93,7 @@ if (isset($_POST['redirect'])) {
         } elseif ($order_type == 4) {
             // xu ly toan bang vnpay
             $vnp_TxnRef = $order_code; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-            $vnp_OrderInfo = 'Thanh toán đơn hàng Guha Perfume';
+            $vnp_OrderInfo = 'Thanh toán đơn hàng DAN Shoes';
             $vnp_OrderType = 'billpayment';
             $vnp_Amount = $total_amount * 100;
             $vnp_Locale = 'vn';

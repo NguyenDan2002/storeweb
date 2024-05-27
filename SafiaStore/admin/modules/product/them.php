@@ -17,7 +17,8 @@
                     <div class="card-content">
                         <div class="input-item form-group">
                             <label for="product_name" class="d-block">Tên sản phẩm</label>
-                            <input type="text" id="product_name" name="product_name" class="d-block form-control" value="" placeholder="product name" required>
+                            <input type="text" id="product_name" name="product_name" class="d-block form-control"
+                                value="" placeholder="product name" required>
                             <span class="form-message"></span>
                         </div>
                         <div class="input-item form-group">
@@ -29,7 +30,8 @@
                                 $query_brand_list = mysqli_query($mysqli, $sql_brand_list);
                                 while ($row_brand = mysqli_fetch_array($query_brand_list)) {
                                 ?>
-                                    <option value="<?php echo $row_brand['brand_id'] ?>"><?php echo $row_brand['brand_name'] ?></option>
+                                <option value="<?php echo $row_brand['brand_id'] ?>">
+                                    <?php echo $row_brand['brand_name'] ?></option>
                                 <?php
                                 }
                                 ?>
@@ -37,34 +39,40 @@
                         </div>
                         <div class="input-item form-group">
                             <label for="product_summary" class="d-block">Thông tin mô tả</label>
-                            <input class="d-block form-control" id="product_summary" name="product_summary" type="text" value="" placeholder="Nhập vào thông tin sản phẩm">
+                            <input class="d-block form-control" id="product_summary" name="product_summary" type="text"
+                                value="" placeholder="Nhập vào thông tin sản phẩm">
                             <span class="form-message"></span>
                         </div>
                         <div class="input-item form-group">
-                            <label for="product_scent" class="d-block">Mùi Hương (sản phẩm có những loại mùi hương nào)</label>
+                            <label for="product_scent" class="d-block">Size (sản phẩm có những loại Size hương
+                                nào)</label>
                             <div class="scent-list">
                                 <?php
                                 $sql_capacity_list = "SELECT * FROM scent ORDER BY scent_id ASC";
                                 $query_capacity_list = mysqli_query($mysqli, $sql_capacity_list);
                                 while ($row_capacity = mysqli_fetch_array($query_capacity_list)) {
                                 ?>
-                                    <div class="scent-item">
-                                        <input type="checkbox" name="product_scent[]" value="<?php echo $row_capacity['scent_id'] ?>"><span class="scent-title"><?php echo $row_capacity['scent_name'] ?></span>
-                                    </div>
+                                <div class="scent-item">
+                                    <input type="checkbox" name="product_scent[]"
+                                        value="<?php echo $row_capacity['scent_id'] ?>"><span
+                                        class="scent-title"><?php echo $row_capacity['scent_name'] ?></span>
+                                </div>
                                 <?php
                                 }
                                 ?>
-                                <a class="btn-add-scent " href="?action=scent&query=scent_add">+ Thêm mùi hương</a>
+                                <a class="btn-add-scent " href="?action=scent&query=scent_add">+ Thêm Size</a>
                             </div>
                         </div>
                         <div class="input-item form-group">
                             <label for="product_price_import" class="d-block">Giá nhập vào sản phẩm</label>
-                            <input class="d-block form-control" id="product_price_import" name="product_price_import" type="text" value="" placeholder="Nhập vào giá nhập hàng">
+                            <input class="d-block form-control" id="product_price_import" name="product_price_import"
+                                type="text" value="" placeholder="Nhập vào giá nhập hàng">
                             <span class="form-message"></span>
                         </div>
                         <div class="input-item form-group">
                             <label for="product_price" class="d-block">Giá bán ra sản phẩm</label>
-                            <input class="d-block form-control" id="product_price" name="product_price" type="text" value="" placeholder="Nhập vào giá bán đề xuất" required>
+                            <input class="d-block form-control" id="product_price" name="product_price" type="text"
+                                value="" placeholder="Nhập vào giá bán đề xuất" required>
                             <span class="form-message"></span>
                         </div>
                         <div class="input-item form-group">
@@ -90,7 +98,8 @@
                                     <img id="chosen-image">
                                     <figcaption id="file-name"></figcaption>
                                 </figure>
-                                <input type="file" class="d-none" id="product_image" name="product_image" accept="image/*">
+                                <input type="file" class="d-none" id="product_image" name="product_image"
+                                    accept="image/*">
                                 <label class="label-for-image" for="product_image">
                                     <i class="fas fa-upload"></i> &nbsp; Tải lên hình ảnh
                                 </label>
@@ -98,7 +107,8 @@
                         </div>
                         <div class="input-item form-group">
                             <label for="product_sale" class="d-block">Sale (%)</label>
-                            <input class="d-block form-control" id="product_sale" name="product_sale" type="number" value="0" placeholder="product sale">
+                            <input class="d-block form-control" id="product_sale" name="product_sale" type="number"
+                                value="0" placeholder="product sale">
                             <span class="form-message"></span>
                         </div>
                         <div class="input-item form-group">
@@ -117,7 +127,8 @@
                                 $query_category_list = mysqli_query($mysqli, $sql_category_list);
                                 while ($row_category = mysqli_fetch_array($query_category_list)) {
                                 ?>
-                                    <option value="<?php echo $row_category['category_id'] ?>"><?php echo $row_category['category_name'] ?></option>
+                                <option value="<?php echo $row_category['category_id'] ?>">
+                                    <?php echo $row_category['category_name'] ?></option>
                                 <?php
                                 }
                                 ?>
@@ -137,37 +148,37 @@
 </form>
 
 <script>
-    $('.select_brand').chosen();
-    $('.select_capacity').chosen();
-    $('.select_category').chosen();
-    CKEDITOR.replace('product_description');
+$('.select_brand').chosen();
+$('.select_capacity').chosen();
+$('.select_category').chosen();
+CKEDITOR.replace('product_description');
 </script>
 
 <script>
-    Validator({
-        form: '#form-product',
-        errorSelector: '.form-message',
-        rules: [
-            Validator.isRequired('#product_name', 'vui lòng nhập tên sản phẩm'),
-            Validator.isRequired('#product_price', 'vui lòng nhập vào giá bán')
-        ],
-        onSubmit: function(data) {
-            console.log(data);
-        }
-    })
-</script>
-
-<script>
-    let uploadButton = document.getElementById("product_image");
-    let chosenImage = document.getElementById("chosen-image");
-    let fileName = document.getElementById("file-name");
-
-    uploadButton.onchange = () => {
-        let reader = new FileReader();
-        reader.readAsDataURL(uploadButton.files[0]);
-        reader.onload = () => {
-            chosenImage.setAttribute("src", reader.result);
-        }
-        fileName.textContent = uploadButton.files[0].name;
+Validator({
+    form: '#form-product',
+    errorSelector: '.form-message',
+    rules: [
+        Validator.isRequired('#product_name', 'vui lòng nhập tên sản phẩm'),
+        Validator.isRequired('#product_price', 'vui lòng nhập vào giá bán')
+    ],
+    onSubmit: function(data) {
+        console.log(data);
     }
+})
+</script>
+
+<script>
+let uploadButton = document.getElementById("product_image");
+let chosenImage = document.getElementById("chosen-image");
+let fileName = document.getElementById("file-name");
+
+uploadButton.onchange = () => {
+    let reader = new FileReader();
+    reader.readAsDataURL(uploadButton.files[0]);
+    reader.onload = () => {
+        chosenImage.setAttribute("src", reader.result);
+    }
+    fileName.textContent = uploadButton.files[0].name;
+}
 </script>

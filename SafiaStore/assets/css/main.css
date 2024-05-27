@@ -2585,7 +2585,7 @@ input[type="range"]::-moz-range-thumb {
   height: 16px;
   display: block;
   margin-right: 3px;
-  background-color: #ffbc59;
+  background-color: #e6341c;
   -webkit-mask-image: url(https://asset.vuahanghieu.com/assets/images/rating-star.svg);
   mask-image: url(https://asset.vuahanghieu.com/assets/images/rating-star.svg);
   -webkit-mask-size: contain;

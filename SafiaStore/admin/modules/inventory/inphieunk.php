@@ -67,7 +67,7 @@
 	$pdf->Write(10,'Tổng tiền hàng phải thành toán là: '.number_format($total).'đ');
 	$pdf->Ln(20);
 
-    $pdf->Write(10,'Cửa hàng nước hòa Guha cảm ơn bạn đã sử dụng dịch vụ.');
+    $pdf->Write(10,'Cửa hàng nước giày DAN Shoes cảm ơn bạn đã sử dụng dịch vụ.');
 	$pdf->Ln(10);
 
 	$pdf->Output(); 
