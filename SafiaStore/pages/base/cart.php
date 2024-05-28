@@ -148,10 +148,10 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                 if (isset($_SESSION['account_email'])) {
                     if ($validate == true) {
                 ?>
-            <a href="index.php?page=checkout" class="btn cart__btn btn__solid text-center">Tiến hành đặt hàng</a>
+            <a href="index.php?page=checkout" class="btn cart__btn btn__solid text-center">Đặt hàng</a>
             <?php } else {
                     ?>
-            <button class="btn cart__btn btn__solid text-center opacity-50" onclick="showErrorMessage();">Tiến hành đặt
+            <button class="btn cart__btn btn__solid text-center opacity-50" onclick="showErrorMessage();">Đặt
                 hàng</button>
             <?php
                     }

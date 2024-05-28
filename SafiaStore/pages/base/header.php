@@ -56,7 +56,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                                 <li class="nav__item">
                                     <a class="nav__anchor h7 d-flex align-center space-between"
                                         href="index.php?page=products">
-                                        Tất cả sản phẩm
+                                        Xem danh sách sản phẩm
                                     </a>
                                 </li>
                                 <?php
@@ -118,7 +118,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                         </li>
                         <li class="nav__item lib_b lib_r">
                             <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=blog">
-                                Blog
+                                Xem tin tức
                             </a>
                         </li>
                         <li class="nav__item lib_b lib_r">

@@ -26,7 +26,7 @@
                 aria-expanded="<?php if ($action === 'order') { echo "true"; } else { echo "false"; } ?>"
                 aria-controls="orders">
                 <i class="menu-icon mdi mdi-table"></i>
-                <span class="menu-title">Đơn hàng</span>
+                <span class="menu-title">Quản lý đơn hàng</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse <?php if ($action === 'order') { echo "show"; } ?>" id="orders">
@@ -53,15 +53,16 @@
                 id="products">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item <?php if ($query === 'product_list') { echo "active"; } ?>"> <a class="nav-link"
-                            href="index.php?action=product&query=product_list">Danh sách sản phẩm</a></li>
+                            href="index.php?action=product&query=product_list">Quản lý sản phẩm</a></li>
                     <!-- <li class="nav-item <?php if ($query === 'collection_list') { echo "active"; } ?>"> <a class="nav-link" href="index.php?action=collection&query=collection_list">Bộ sưu tập</a></li> -->
                     <li class="nav-item <?php if ($query === 'category_list') { echo "active"; } ?>"> <a
-                            class="nav-link" href="index.php?action=category&query=category_list">Danh mục sản phẩm</a>
+                            class="nav-link" href="index.php?action=category&query=category_list">Quản lý danh mục sản
+                            phẩm</a>
                     </li>
                     <li class="nav-item <?php if ($query === 'brand_list') { echo "active"; } ?>"> <a class="nav-link"
-                            href="index.php?action=brand&query=brand_list">Danh sách thương hiệu</a></li>
+                            href="index.php?action=brand&query=brand_list">Quản lý thương hiệu</a></li>
                     <li class="nav-item <?php if ($query === 'scent_list') { echo "active"; } ?>"> <a class="nav-link"
-                            href="index.php?action=scent&query=scent_list">Danh sách Size</a></li>
+                            href="index.php?action=scent&query=scent_list">Quản lý Size</a></li>
                     <li class="nav-item <?php if ($query === 'product_inventory') { echo "active"; } ?>"> <a
                             class="nav-link" href="index.php?action=product&query=product_inventory">Hàng tồn kho</a>
                     </li>
@@ -77,19 +78,19 @@
         <li class="nav-item <?php if ($action === 'account') { echo "active"; } ?>">
             <a class="nav-link" href="index.php?action=account&query=account_list">
                 <i class="mdi mdi-account-multiple-outline menu-icon"></i>
-                <span class="menu-title">Tài khoản</span>
+                <span class="menu-title">Quản lý tài khoản</span>
             </a>
         </li>
         <li class="nav-item <?php if ($action === 'article') { echo "active"; } ?>">
             <a class="nav-link" href="index.php?action=article&query=article_list">
                 <i class="mdi mdi mdi-code-not-equal menu-icon"></i>
-                <span class="menu-title">Bài viết</span>
+                <span class="menu-title">Quản lý tin tức</span>
             </a>
         </li>
         <li class="nav-item <?php if ($action === 'inventory') { echo "active"; } ?>">
             <a class="nav-link" href="index.php?action=inventory&query=inventory_list">
                 <i class="mdi mdi-clipboard-text menu-icon"></i>
-                <span class="menu-title">Phiếu nhập kho</span>
+                <span class="menu-title">Quản lý phiếu nhập kho</span>
             </a>
         </li>
         <li class="nav-item <?php if ($action === 'dashboard') { echo "active"; } ?>">

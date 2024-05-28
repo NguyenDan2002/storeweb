@@ -178,7 +178,7 @@ while ($row_product_detail = mysqli_fetch_array($query_product_detail)) {
                             </div>
                             <?php if ($row_product_detail['product_quantity'] > 0) { ?>
                             <input class="btn product-detail__addtocart w-100" type="submit" name="addtocart"
-                                value="Thêm giỏ hàng" />
+                                value="Thêm vào giỏ hàng" />
 
                             <input class="btn product-detail__buynow w-100" type="submit" name="buynow"
                                 value="Mua ngay" />

@@ -43,17 +43,19 @@ if (isset($_GET['order_status'])) {
                     <div class="input__search p-relative">
                         <form class="search-form" action="?action=order&query=order_search" method="POST">
                             <i class="icon-search p-absolute"></i>
-                            <input type="search" name="order_search" class="form-control" placeholder="Search Here" title="Search here">
+                            <input type="search" name="order_search" class="form-control" placeholder="Search Here"
+                                title="Search here">
                         </form>
                     </div>
                     <div class="dropdown dropdown__item">
-                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuSizeButton2"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
                             <?php 
                                 if (isset($_GET['order_status']) && $_GET['order_status'] == 0) {
                                     echo "Đơn đang xử lý";
                                 } elseif(isset($_GET['order_status']) && $_GET['order_status'] == 1) {
-                                    echo "Đang chuyển bị hàng";
+                                    echo "Đang chuẩn bị hàng";
                                 } elseif(isset($_GET['order_status']) && $_GET['order_status'] == 2) {
                                     echo "Đang giao hàng";
                                 } elseif(isset($_GET['order_status']) && $_GET['order_status'] == 3) {
@@ -66,12 +68,18 @@ if (isset($_GET['order_status'])) {
                             ?>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                            <a class="dropdown-item" href="index.php?action=order&query=order_list">Đơn đang thực hiện</a>
-                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=0">Đang xử lý</a>
-                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=1">Đang chuyển bị hàng</a>
-                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=2">Đang giao hàng</a>
-                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=3">Đã hoàn thành</a>
-                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=-1">Đã hủy</a>
+                            <a class="dropdown-item" href="index.php?action=order&query=order_list">Đơn đang thực
+                                hiện</a>
+                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=0">Đang
+                                xử lý</a>
+                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=1">Đang
+                                chuẩn bị hàng</a>
+                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=2">Đang
+                                giao hàng</a>
+                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=3">Đã
+                                hoàn thành</a>
+                            <a class="dropdown-item" href="index.php?action=order&query=order_list&order_status=-1">Đã
+                                hủy</a>
                         </div>
                     </div>
                 </div>
@@ -98,23 +106,28 @@ if (isset($_GET['order_status'])) {
                             while ($row = mysqli_fetch_array($query_order_list)) {
                                 $i++;
                             ?>
-                                <tr>
-                                    <td>
-                                        <a href="?action=order&query=order_detail_online&order_code=<?php echo $row['order_code'] ?>">
-                                            <div class="icon-edit">
-                                                <img class="w-100 h-100" src="images/icon-view.png" alt="">
-                                            </div>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" class="checkbox" onclick="testChecked(); getCheckedCheckboxes();" id="<?php echo $row['order_code'] ?>">
-                                    </td>
-                                    <td><?php echo $row['order_code'] ?></td>
-                                    <td><?php echo $row['order_date'] ?></td>
-                                    <td><?php echo $row['account_name'] ?></td>
-                                    <td><?php echo format_order_type($row['order_type']); ?></td>
-                                    <td class="text-center"><span class="col-span <?php echo format_status_style($row['order_status']) ?>"><?php echo format_order_status($row['order_status']); ?></span></td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <a
+                                        href="?action=order&query=order_detail_online&order_code=<?php echo $row['order_code'] ?>">
+                                        <div class="icon-edit">
+                                            <img class="w-100 h-100" src="images/icon-view.png" alt="">
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="checkbox"
+                                        onclick="testChecked(); getCheckedCheckboxes();"
+                                        id="<?php echo $row['order_code'] ?>">
+                                </td>
+                                <td><?php echo $row['order_code'] ?></td>
+                                <td><?php echo $row['order_date'] ?></td>
+                                <td><?php echo $row['account_name'] ?></td>
+                                <td><?php echo format_order_type($row['order_type']); ?></td>
+                                <td class="text-center"><span
+                                        class="col-span <?php echo format_status_style($row['order_status']) ?>"><?php echo format_order_status($row['order_status']); ?></span>
+                                </td>
+                            </tr>
                             <?php
                             }
                             ?>
@@ -136,41 +149,44 @@ if (isset($_GET['order_status'])) {
                     $currentLink = $_SERVER['REQUEST_URI'];
                     if ($totalpage > 1) {
                     ?>
-                        <ul class="pagination__items d-flex align-center justify-center">
-                            <?php
+                    <ul class="pagination__items d-flex align-center justify-center">
+                        <?php
                             if ($page != 1) {
                             ?>
-                                <li class="pagination__item">
-                                    <a class="d-flex align-center" href="<?php echo $currentLink ?>&pagenumber=<?php echo $i + 1 ?>">
-                                        <img src="images/arrow-left.svg" alt="">
-                                    </a>
-                                </li>
-                            <?php
+                        <li class="pagination__item">
+                            <a class="d-flex align-center"
+                                href="<?php echo $currentLink ?>&pagenumber=<?php echo $i + 1 ?>">
+                                <img src="images/arrow-left.svg" alt="">
+                            </a>
+                        </li>
+                        <?php
                             }
                             ?>
-                            <?php
+                        <?php
                             for ($i = 1; $i <= $totalpage; $i++) {
                             ?>
-                                <li class="pagination__item">
-                                    <a class="pagination__anchor <?php if ($page == $i) {
+                        <li class="pagination__item">
+                            <a class="pagination__anchor <?php if ($page == $i) {
                                                                         echo "active";
-                                                                    } ?>" href="<?php echo $currentLink ?>&pagenumber=<?php echo $i ?>"><?php echo $i ?></a>
-                                </li>
-                            <?php
+                                                                    } ?>"
+                                href="<?php echo $currentLink ?>&pagenumber=<?php echo $i ?>"><?php echo $i ?></a>
+                        </li>
+                        <?php
                             }
                             ?>
-                            <?php
+                        <?php
                             if ($page != $totalpage) {
                             ?>
-                                <li class="pagination__item">
-                                    <a class="d-flex align-center" href="<?php echo $currentLink ?>&pagenumber=<?php echo $i ?>">
-                                        <img src="images/icon-nextlink.svg" alt="">
-                                    </a>
-                                </li>
-                            <?php
+                        <li class="pagination__item">
+                            <a class="d-flex align-center"
+                                href="<?php echo $currentLink ?>&pagenumber=<?php echo $i ?>">
+                                <img src="images/icon-nextlink.svg" alt="">
+                            </a>
+                        </li>
+                        <?php
                             }
                             ?>
-                        </ul>
+                    </ul>
                     <?php
                     } elseif ($totalpage == 0) {
                     ?>
@@ -192,65 +208,65 @@ if (isset($_GET['order_status'])) {
     </div>
 </div>
 <script>
-    var btnConfirm = document.getElementById("btnConfirm");
-    var btnCancel = document.getElementById("btnCancel");
-    var checkAll = document.getElementById("checkAll");
-    var checkboxes = document.getElementsByClassName("checkbox");
-    var dialogControl = document.querySelector('.dialog__control');
-    // Thêm sự kiện click cho checkbox checkAll
-    checkAll.addEventListener("click", function() {
-        // Nếu checkbox checkAll được chọn
-        if (checkAll.checked) {
-            // Đặt thuộc tính "checked" cho tất cả các checkbox còn lại
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = true;
-            }
-        } else {
-            // Bỏ thuộc tính "checked" cho tất cả các checkbox còn lại
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = false;
-            }
+var btnConfirm = document.getElementById("btnConfirm");
+var btnCancel = document.getElementById("btnCancel");
+var checkAll = document.getElementById("checkAll");
+var checkboxes = document.getElementsByClassName("checkbox");
+var dialogControl = document.querySelector('.dialog__control');
+// Thêm sự kiện click cho checkbox checkAll
+checkAll.addEventListener("click", function() {
+    // Nếu checkbox checkAll được chọn
+    if (checkAll.checked) {
+        // Đặt thuộc tính "checked" cho tất cả các checkbox còn lại
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = true;
         }
-        testChecked();
-        getCheckedCheckboxes();
-    });
-
-    function testChecked() {
-        var count = 0;
-        for (let i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                count++;
-                console.log(count);
-            }
-        }
-        if (count > 0) {
-            dialogControl.classList.add('active');
-        } else {
-            dialogControl.classList.remove('active');
-            checkAll.checked = false;
+    } else {
+        // Bỏ thuộc tính "checked" cho tất cả các checkbox còn lại
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = false;
         }
     }
+    testChecked();
+    getCheckedCheckboxes();
+});
 
-    function getCheckedCheckboxes() {
-        var checkeds = document.querySelectorAll('.checkbox:checked');
-        var checkedIds = [];
-        for (var i = 0; i < checkeds.length; i++) {
-            checkedIds.push(checkeds[i].id);
+function testChecked() {
+    var count = 0;
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            count++;
+            console.log(count);
         }
-        btnConfirm.href = "modules/order/xuly.php?confirm=1&data=" + JSON.stringify(checkedIds);
-        btnCancel.href = "modules/order/xuly.php?cancel=1&data=" + JSON.stringify(checkedIds);
     }
+    if (count > 0) {
+        dialogControl.classList.add('active');
+    } else {
+        dialogControl.classList.remove('active');
+        checkAll.checked = false;
+    }
+}
+
+function getCheckedCheckboxes() {
+    var checkeds = document.querySelectorAll('.checkbox:checked');
+    var checkedIds = [];
+    for (var i = 0; i < checkeds.length; i++) {
+        checkedIds.push(checkeds[i].id);
+    }
+    btnConfirm.href = "modules/order/xuly.php?confirm=1&data=" + JSON.stringify(checkedIds);
+    btnCancel.href = "modules/order/xuly.php?cancel=1&data=" + JSON.stringify(checkedIds);
+}
 </script>
 
 <script>
-    function showSuccessToast() {
-        toast({
-            title: "Success",
-            message: "Cập nhật thành công",
-            type: "success",
-            duration: 0,
-        });
-    }
+function showSuccessToast() {
+    toast({
+        title: "Success",
+        message: "Cập nhật thành công",
+        type: "success",
+        duration: 0,
+    });
+}
 </script>
 
 <?php
@@ -263,5 +279,6 @@ if (isset($_GET['message']) && $_GET['message'] == 'success') {
 ?>
 
 <script>
-    window.history.pushState(null, "", "index.php?action=order&query=order_list"+"<?php echo $url_status ?><?php echo $url_page ?>");
+window.history.pushState(null, "", "index.php?action=order&query=order_list" +
+    "<?php echo $url_status ?><?php echo $url_page ?>");
 </script>

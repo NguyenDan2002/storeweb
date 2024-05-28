@@ -17,8 +17,8 @@
                 </div>
                 <div class="col" style="--w-md:4;">
                     <div class="about__image--item">
-                        <img class="w-100 h-100 d-block object-fit-cover" src="./assets/images/banner/about33.jpg"
-                            alt="img about">
+                        <img class="w-100 h-100 d-block object-fit-cover"
+                            src="./assets/images/banner/about_product2.jpg" alt="img about">
                     </div>
                 </div>
             </div>
