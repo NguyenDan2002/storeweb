@@ -8,10 +8,27 @@ $now = Carbon::now('Asia/Ho_Chi_Minh')->subdays(-1)->toDateString();
 $subdays = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
 $query_order = mysqli_query($mysqli, "SELECT * FROM orders WHERE order_date BETWEEN '$subdays' AND '$now'");
 $order_count = mysqli_num_rows($query_order);
-
-$sql_sales = "SELECT * FROM orders WHERE order_date BETWEEN '$subdays' AND '$now'";
+$query_order1 = mysqli_query($mysqli, "SELECT * FROM orders WHERE order_status=-1 AND order_date BETWEEN '$subdays' AND '$now'");
+$order_count1 = mysqli_num_rows($query_order1);
+$query_order2 = mysqli_query($mysqli, "SELECT * FROM orders WHERE order_type=4 AND order_date BETWEEN '$subdays' AND '$now'");
+$order_count2 = mysqli_num_rows($query_order2);
+$sql_sales = "SELECT * FROM orders WHERE order_status=3 AND order_date BETWEEN '$subdays' AND '$now'";
 $query_sales = mysqli_query($mysqli, $sql_sales);
 $sales = 0;
+$sql_saless = "SELECT * FROM orders WHERE order_date BETWEEN '$subdays' AND '$now'";
+$query_saless = mysqli_query($mysqli, $sql_saless);
+$sales = 0;
+$saless=0;
+
+//tinh loi nhuan = doanh thu thuc te - don hang gia goc (voi don hang đã được tính tiền trong ngày trạng thái 4).
+
+$sql_salesss = "SELECT * FROM orders WHERE order_date BETWEEN '$subdays' AND '$now'";
+$query_salesss = mysqli_query($mysqli, $sql_salesss);
+
+//
+while ($order = mysqli_fetch_array($query_saless)) {
+    $saless += $order['total_amount'];
+}
 while ($order = mysqli_fetch_array($query_sales)) {
     $sales += $order['total_amount'];
 }
@@ -66,7 +83,7 @@ $customer_count = mysqli_num_rows($query_customer);
         <div class="card">
             <div class="card-body">
                 <div class="card-content">
-                    <h3 class="box-title">Doanh thu hôm nay</h3>
+                    <h3 class="box-title">Doanh thu thực tế</h3>
                     <span class="box-number text-success"><?php echo number_format($sales) ?>đ</span>
                     <div class="box-number-new">
                         <p>Thống kê ngày hôm nay</p>
@@ -75,6 +92,46 @@ $customer_count = mysqli_num_rows($query_customer);
             </div>
         </div>
     </div>
+    <div class="col-lg-3 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-content">
+                    <h3 class="box-title">Doanh thu hôm nay</h3>
+                    <span class="box-number text-success"><?php echo number_format($saless) ?>đ</span>
+                    <div class="box-number-new">
+                        <p>Thống kê ngày hôm nay</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-content">
+                    <h3 class="box-title">Số đơn hàng bị hủy</h3>
+                    <span class="box-number color-t-blue"><?php echo $order_count1 ?></span>
+                    <div class="box-number-new">
+                        <p>Đơn hàng hủy trong ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-content">
+                    <h3 class="box-title">Số đơn hàng thanh toán online</h3>
+                    <span class="box-number color-t-blue"><?php echo $order_count2 ?></span>
+                    <div class="box-number-new">
+                        <p>Đơn hàng thanh toán online trong ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div class="row">

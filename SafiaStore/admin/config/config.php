@@ -1,5 +1,5 @@
 <?php
-    $mysqli = new mysqli("localhost:3306","root","","dbstore");
+    $mysqli = new mysqli("localhost:3307","root","","dbstore");
 
     // Check connection
     if ($mysqli->connect_errno) {
